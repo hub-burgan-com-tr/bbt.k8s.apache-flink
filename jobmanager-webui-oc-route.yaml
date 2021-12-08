@@ -1,0 +1,15 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: flink-jobmanager-webui
+spec:
+  host: flink-jobmanager-webui.site.com
+  to:
+    kind: Service
+    name: flink-jobmanager
+    weight: 100
+  port:
+    targetPort: webui
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
